@@ -1,0 +1,105 @@
+
+
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+            
+            body
+            {
+                background-color: black;
+                color:white;
+                
+                font-family: Consolas;
+                font-size:120%;
+            }
+            .cont
+            {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                /*margin-top:10%;   */
+                /*display:flex; 
+                margin:auto;
+                position: relative;*/
+
+               
+            }
+            #demo
+            {
+                /*width:50%;*/
+            }
+            pre
+            {
+                /*border: 1px solid white;
+                width:auto;*/
+            }
+           
+        </style>
+        
+        <script>
+
+            /*var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if(!isChrome){
+                $('#iframeAudio').remove()
+                }
+            else{
+                $('#tp').remove() //just to make sure that it will not have 2x audio in the background 
+            }*/
+
+            var i = 0;
+            var br="<br/>";
+            var txt = "Hello\nWelcome to my business card page\nMy name is Arthur Sarkisian.\nI'm 24 years old.\nI'm a Full-Stack Web Developer.\nI specialize in:\nHTML/HTML5(XML),\nCSS(SASS, LESS, SCSS, Bootstrap),\nJS (React.js, Vue.js, JQuery, AJAX, JSON),\nPHP(Laravel, Symphony), \nMySQL(MariaDB, InnoDB), \nCMS(WordPress, OpenCart, Drupal)\n Feel free to contact me\nMy Telegram: @ArthurCloud\nMy Skype: arthursarkisian_1";
+            var speed = 100;
+            var n = txt.search("<br/>");
+
+            function typeWriter() {
+              if (i < txt.length) 
+              {
+                  
+                document.getElementById("demo").innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+              }
+              else
+              {
+                    //sound.pause();
+                    document.getElementById("tp").pause();
+              }
+            }
+        </script>
+    </head>
+    
+<body onload="typeWriter()">
+
+
+
+
+
+<div class="cont">
+    
+    <center>
+       
+            <pre id="demo"></pre>
+        
+    </center>
+
+</div>
+
+    <!--
+
+    -->
+    <audio id="tp" autoplay>
+          
+          <source src="typewriter-1.mp3" >
+        Your browser does not support the audio element.
+    </audio>
+    
+    <iframe src="typewriter-1.mp3" allow="autoplay" style="display:none" id="iframeAudio">
+    </iframe>
+    
+
+</body>
